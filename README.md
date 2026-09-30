@@ -45,6 +45,7 @@ Testing & Verification: Pytest
 
 ## 📂 Project Structure
 
+```
 Cybersecurity-Threat-Intelligence-Dashboard/
 │
 ├── backend/
@@ -79,6 +80,7 @@ Cybersecurity-Threat-Intelligence-Dashboard/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
 ## ⚙️ Installation & Local Setup
 
