@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "category": "PHISHING",
+    "question": "You receive an urgent message from 'IT Support' asking for your password to prevent account deletion. What should you do?",
+    "options": ["A. Reply with credentials immediately", "B. Ignore and delete", "C. Verify through an established official internal channel", "D. Forward credentials to colleagues"],
+    "correct": "C"
+  },
+  {
+    "id": 2,
+    "category": "CREDENTIALS",
+    "question": "Which of the following is considered the strongest defense against password spraying attacks?",
+    "options": ["A. Changing passwords every 3 days", "B. Enabling Multi-Factor Authentication (MFA)", "C. Writing passwords in a desk notepad", "D. Using only dictionary words"],
+    "correct": "B"
+  },
+  {
+    "id": 3,
+    "category": "RANSOMWARE",
+    "question": "What is the primary role of an immutable offline backup during a ransomware incident?",
+    "options": ["A. To notify law enforcement", "B. To restore data without paying extortion demands", "C. To attack the threat actor back", "D. To decrypt ransomware files automatically"],
+    "correct": "B"
+  },
+  {
+    "id": 4,
+    "category": "SAFE_BROWSING",
+    "question": "A browser displays a TLS certificate name mismatch error for an internal payroll portal. What is the safest action?",
+    "options": ["A. Bypass the warning immediately", "B. Cease browsing and notify security operations", "C. Disable browser security protections", "D. Enter credentials regardless"],
+    "correct": "B"
+  },
+  {
+    "id": 5,
+    "category": "INCIDENT_REPORTING",
+    "question": "After mistakenly clicking a suspicious macro attachment, what is the best initial step?",
+    "options": ["A. Power off the building breaker", "B. Isolate network connection and report immediately to the SOC", "C. Delete system logs to conceal the mistake", "D. Wait 48 hours to check if files get encrypted"],
+    "correct": "B"
+  }
+]

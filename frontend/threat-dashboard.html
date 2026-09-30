@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SOC Threat Intelligence Stream</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">🛡️ CYBER-DEFENSE SOC DASHBOARD</div>
+        <nav>
+            <a href="index.html">Overview</a>
+            <a href="threat-dashboard.html" class="active">Investigation View</a>
+            <a href="awareness.html">Awareness Center</a>
+            <a href="quiz.html">Security Quiz</a>
+        </nav>
+    </header>
+    <main class="container">
+        <h2>SOC Indicator Triage Queue</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Threat ID</th>
+                    <th>Indicator Value</th>
+                    <th>Category</th>
+                    <th>Severity</th>
+                    <th>Risk</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="triageTable">
+                <tr><td colspan="6">Loading SOC telemetry stream...</td></tr>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        fetch('/api/threats?limit=50')
+            .then(r => r.json())
+            .then(res => {
+                const tb = document.getElementById('triageTable');
+                tb.innerHTML = res.data.map(t => `
+                    <tr>
+                        <td><code>${t.threat_id}</code></td>
+                        <td><code>${t.indicator_value}</code></td>
+                        <td>${t.threat_category}</td>
+                        <td style="color:${t.severity === 'CRITICAL' ? '#ef4444' : '#38bdf8'}">${t.severity}</td>
+                        <td>${t.risk_score}/100</td>
+                        <td><a href="threat-details.html?id=${t.threat_id}" style="color:#38bdf8; text-decoration:none; font-weight:bold;">Investigate &rarr;</a></td>
+                    </tr>
+                `).join('');
+            });
+    </script>
+</body>
+</html>

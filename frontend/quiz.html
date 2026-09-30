@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Defensive Security Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">🛡️ CYBER-DEFENSE SOC DASHBOARD</div>
+        <nav>
+            <a href="index.html">SOC Analytics</a>
+            <a href="awareness.html">Awareness Center</a>
+            <a href="quiz.html" class="active">Security Quiz</a>
+        </nav>
+    </header>
+    <main class="container">
+        <h2>Interactive Threat Awareness Quiz</h2>
+        <form id="quizForm" class="search-box"></form>
+        <button onclick="submitQuiz()" class="search-form button" style="margin-top:15px; padding:10px 20px; background:#38bdf8; font-weight:bold; cursor:pointer;">Submit Quiz</button>
+        <div id="quizResult" class="results-card hidden" style="margin-top:20px;"></div>
+    </main>
+    <script>
+        let questions = [];
+        fetch('/api/quiz').then(r => r.json()).then(q => {
+            questions = q;
+            document.getElementById('quizForm').innerHTML = q.map(item => `
+                <div style="margin-bottom:1.5rem;">
+                    <p><strong>${item.id}. ${item.question}</strong></p>
+                    ${item.options.map(opt => `
+                        <label style="display:block; margin:4px 0; color:#94a3b8; cursor:pointer;">
+                            <input type="radio" name="${item.id}" value="${opt[0]}"> ${opt}
+                        </label>
+                    `).join('')}
+                </div>
+            `).join('');
+        });
+
+        async function submitQuiz() {
+            const payload = {};
+            questions.forEach(q => {
+                const el = document.querySelector(`input[name="${q.id}"]:checked`);
+                if (el) payload[q.id] = el.value;
+            });
+            const res = await fetch('/api/quiz/submit', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json();
+            const resBox = document.getElementById('quizResult');
+            resBox.classList.remove('hidden');
+            resBox.innerHTML = `
+                <h3>Awareness Score: ${result.overall_score}%</h3>
+                <p>Correct: ${result.correct_answers} / ${result.total_questions}</p>
+                <h4>Recommendations:</h4>
+                <ul>${result.recommendations.map(r => `<li>${r}</li>`).join('') || '<li>Great awareness! Keep practicing defensive hygiene.</li>'}</ul>
+            `;
+        }
+    </script>
+</body>
+</html>

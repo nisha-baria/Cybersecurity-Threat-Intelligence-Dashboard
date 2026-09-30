@@ -1,0 +1,26 @@
+[
+  {
+    "id": "MOD-01",
+    "title": "Phishing & Social Engineering",
+    "category": "PHISHING",
+    "summary": "Recognize deception techniques across emails, SMS, and messaging platforms.",
+    "warning_signs": ["Urgent call-to-actions", "Domain mismatches", "Unexpected attachments"],
+    "best_practices": ["Inspect raw sender headers", "Do not click unverified links", "Use out-of-band verification"]
+  },
+  {
+    "id": "MOD-02",
+    "title": "Password & Multi-Factor Hygiene",
+    "category": "CREDENTIALS",
+    "summary": "Protect corporate identities using entropy, password managers, and FIDO2 authentication.",
+    "warning_signs": ["MFA push fatigue prompts", "Credential reuse on untrusted sites"],
+    "best_practices": ["Use 16+ character passphrases", "Adopt hardware tokens or authenticator apps", "Disable SMS recovery where possible"]
+  },
+  {
+    "id": "MOD-03",
+    "title": "Ransomware & Defense-in-Depth",
+    "category": "RANSOMWARE",
+    "summary": "Understand encryption malware vectors, offline backups, and containment.",
+    "warning_signs": ["Abnormal disk activity", "Spam macros requested", "Mass file rename operations"],
+    "best_practices": ["Implement 3-2-1 backup policies", "Segment network perimeters", "Keep software dependencies patched"]
+  }
+]

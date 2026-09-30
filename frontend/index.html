@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Threat Intelligence & Awareness Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">🛡️ CYBER-DEFENSE SOC DASHBOARD</div>
+        <nav>
+            <a href="index.html" class="active">SOC Analytics</a>
+            <a href="awareness.html">Awareness Center</a>
+            <a href="quiz.html">Security Quiz</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Search Section -->
+        <section class="search-box">
+            <h2>Passive Indicator Lookup (Local Defensive Intel)</h2>
+            <div class="search-form">
+                <input type="text" id="iocSearchInput" placeholder="Enter IP, Domain, Hash, or CVE (e.g. 198.51.100.25)...">
+                <button onclick="performSearch()">Query Intel</button>
+            </div>
+            <div id="searchResults" class="results-card hidden"></div>
+        </section>
+
+        <!-- Metric KPI Cards -->
+        <section class="kpi-grid">
+            <div class="kpi-card"><h3>Total Threats Tracked</h3><p id="totalThreats">0</p></div>
+            <div class="kpi-card alert-critical"><h3>Critical Severity</h3><p id="critThreats">0</p></div>
+            <div class="kpi-card alert-high"><h3>High Severity</h3><p id="highThreats">0</p></div>
+            <div class="kpi-card"><h3>Unique Indicators</h3><p id="uniqueIocs">0</p></div>
+            <div class="kpi-card"><h3>Avg Feed Confidence</h3><p id="avgConf">0%</p></div>
+        </section>
+
+        <!-- Chart Grid -->
+        <section class="charts-grid">
+            <div class="chart-container">
+                <canvas id="sevChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="catChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Live Threats Stream -->
+        <section class="table-section">
+            <h2>Recent Threat Observations</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Threat ID</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Indicator Value</th>
+                        <th>Severity</th>
+                        <th>Risk Score</th>
+                        <th>Confidence</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="threatTableBody">
+                    <tr><td colspan="8">Loading telemetry data...</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

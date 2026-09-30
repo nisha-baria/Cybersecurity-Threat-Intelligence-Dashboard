@@ -1,0 +1,9 @@
+cve_id,product_category,severity,cvss_score,published_date,patch_available,exploitation_status_demo,description
+CVE-2026-1001,Web Server,CRITICAL,9.8,2026-01-10,YES,ACTIVE_EXPLOIT_DEMO,Remote code execution vulnerability in HTTP request parsing module.
+CVE-2026-1045,VPN Gateway,HIGH,8.4,2026-02-14,YES,POC_DEMO_ONLY,Authentication bypass in perimeter SSL-VPN portal interface.
+CVE-2026-2189,Database,MEDIUM,6.5,2026-03-01,YES,NONE,Privilege escalation via authenticated local procedure calls.
+CVE-2026-3392,Email Gateway,HIGH,7.8,2026-03-22,NO,UNDER_REVIEW,MIME attachment filter inspection evasion flaw.
+CVE-2026-4401,Endpoint OS,LOW,3.9,2026-04-05,YES,NONE,Information disclosure in local crash dump diagnostic files.
+CVE-2026-5519,Cloud Storage,CRITICAL,9.1,2026-05-12,YES,ACTIVE_EXPLOIT_DEMO,Improper access control allowing unauthorized bucket enumeration.
+CVE-2026-6721,API Gateway,MEDIUM,5.4,2026-06-18,YES,NONE,Rate-limiting bypass via engineered HTTP headers.
+CVE-2026-7890,Virtualization,CRITICAL,9.9,2026-07-20,YES,ACTIVE_EXPLOIT_DEMO,Virtual machine hypervisor guest-to-host boundary breakout.
